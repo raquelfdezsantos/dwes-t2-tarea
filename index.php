@@ -13,12 +13,20 @@
     require_once 'clases/Asignatura.php';
 
 
-    // Crear asignaturas, alumnos y profesores
+    // Creo asignaturas, alumnos y profesores
     $asignaturas = Asignatura::crearAsignaturasDeMuestra();
     $alumnos = Alumno::crearAlumnosDeMuestra($asignaturas);
     $profesores = Profesor::crearProfesoresDeMuestra();
 
+    echo "<h1>Gestión del Centro Educativo</h1>";
 
+
+    // Muestro la lista de todos los alumnos
+    echo "<h2>Alumnos</h2><ul>";
+    foreach ($alumnos as $alumno) {
+        echo "<li>{$alumno}</li>";
+    }
+    echo "</ul>";
 
 
     ?>
