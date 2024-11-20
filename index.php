@@ -45,6 +45,15 @@
     }
     echo "</ul>";
 
+
+    // Listado de alumnos menores o iguales a 23 años (con array_filter)
+    echo "<h2>Alumnos <= 23</h2><ul>";
+    $alumnosMenores23 = array_filter($alumnos, fn($alumno) => $alumno->getEdad() <= 23);
+    foreach ($alumnosMenores23 as $alumno) {
+        echo "<li>{$alumno}</li>";
+    }
+    echo "</ul>";
+
     ?>
     
     </body>
