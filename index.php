@@ -7,6 +7,7 @@
 </head>
 <body>
     <?php
+    
     // Incluyo las clases
     require_once 'clases/Alumno.php';
     require_once 'clases/Profesor.php';
@@ -55,11 +56,30 @@
     echo "</ul>";
 
 
-    // Listado de alumnos con al menos dos asignaturas
+    // Listado de alumnos con al menos dos asignaturas (con array_filter)
     echo "<h2>Alumnos con al Menos Dos Asignaturas</h2><ul>";
     $alumnosConDosAsignaturas = array_filter($alumnos, fn($alumno) => count($alumno->getAsignaturas()) >= 2);
     foreach ($alumnosConDosAsignaturas as $alumno) {
         echo "<li>{$alumno}</li>";
+    }
+    echo "</ul>";
+
+
+    // Listado de asignaturas con algún alumno matriculado (sin array_filter)
+    echo "<h2>Asignaturas con algún Alumno Matriculado</h2><ul>";
+    foreach ($asignaturas as $asignatura) {
+        $tieneAlumnos = false;
+        foreach ($alumnos as $alumno) {
+            foreach ($alumno->getAsignaturas() as $asignaturaMatriculada) {
+                if ($asignaturaMatriculada->getId() === $asignatura->getId()) {
+                    $tieneAlumnos = true;
+                    break 2;
+                }
+            }
+        }
+        if ($tieneAlumnos) {
+            echo "<li>{$asignatura}</li>";
+        }
     }
     echo "</ul>";
 
