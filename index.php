@@ -7,12 +7,16 @@
 </head>
 <body>
     <?php
+    // Incluyo las clases
     require_once 'clases/Alumno.php';
     require_once 'clases/Profesor.php';
     require_once 'clases/Asignatura.php';
 
 
-    
+    // Crear asignaturas, alumnos y profesores
+    $asignaturas = Asignatura::crearAsignaturasDeMuestra();
+    $alumnos = Alumno::crearAlumnosDeMuestra($asignaturas);
+    $profesores = Profesor::crearProfesoresDeMuestra();
 
 
 
