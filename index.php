@@ -54,6 +54,15 @@
     }
     echo "</ul>";
 
+
+    // Listado de alumnos con al menos dos asignaturas
+    echo "<h2>Alumnos con al Menos Dos Asignaturas</h2><ul>";
+    $alumnosConDosAsignaturas = array_filter($alumnos, fn($alumno) => count($alumno->getAsignaturas()) >= 2);
+    foreach ($alumnosConDosAsignaturas as $alumno) {
+        echo "<li>{$alumno}</li>";
+    }
+    echo "</ul>";
+
     ?>
     
     </body>
