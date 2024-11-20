@@ -18,6 +18,7 @@
     $alumnos = Alumno::crearAlumnosDeMuestra($asignaturas);
     $profesores = Profesor::crearProfesoresDeMuestra();
 
+    
     echo "<h1>Gestión del Centro Educativo</h1>";
 
 
@@ -28,6 +29,13 @@
     }
     echo "</ul>";
 
+
+    // Muestro la lista de todos los profesores
+    echo "<h2>Profesores</h2><ul>";
+    foreach ($profesores as $profesor) {
+        echo "<li>{$profesor}</li>";
+    }
+    echo "</ul>";
 
     ?>
     
